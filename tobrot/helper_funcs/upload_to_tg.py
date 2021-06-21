@@ -62,6 +62,7 @@ async def upload_to_tg(
     caption_str += "<code>"
     caption_str += base_file_name
     caption_str += "</code>"
+    caption_str += f'\n\n🧩   <a href="https://t.me/CerminGroup">ᴄ ᴇ ʀ ᴍ ɪ ɴ</a>'
     if os.path.isdir(local_file_name):
         directory_contents = os.listdir(local_file_name)
         directory_contents.sort()
@@ -70,7 +71,7 @@ async def upload_to_tg(
         new_m_esg = message
         if not message.photo:
             new_m_esg = await message.reply_text(
-                f"Found {len(directory_contents)} files <a href='tg://user?id={from_user}'>🤒</a>",
+                f"📚 Ditemukan {len(directory_contents)} files <a href='tg://user?id={from_user}'>📦</a>",
                 quote=True
                 # reply_to_message_id=message.message_id
             )
@@ -202,7 +203,7 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         await messa_ge.reply_text(
-            f"🤖: Uploaded successfully `{os.path.basename(file_upload)}` <a href='tg://user?id={g_id}'>🤒</a>\n📀 Size: {gjay}",
+            f"🤖: Uploaded successfully\n`{os.path.basename(file_upload)}` <a href='tg://user?id={g_id}'>🤒</a>\n\n📀 Size: {gjay}",
             reply_markup=button_markup,
         )
         os.remove(file_upload)
@@ -270,7 +271,7 @@ async def upload_to_gdrive(file_upload, message, messa_ge, g_id):
         button_markup = pyrogram.InlineKeyboardMarkup(button)
         await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
         await messa_ge.reply_text(
-            f"🤖: Uploaded successfully `{os.path.basename(file_upload)}` <a href='tg://user?id={g_id}'>🤒</a>\n📀 Size: {gjay}",
+            f"🤖: Uploaded successfully\n`{os.path.basename(file_upload)}` <a href='tg://user?id={g_id}'>🤒</a>\n\n📀 Size: {gjay}",
             reply_markup=button_markup,
         )
         shutil.rmtree(file_upload)
@@ -413,7 +414,7 @@ async def upload_single_file(
                         # reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "╭──────── ⌊ 📤 Uploading ⌉ ",
                             message_for_progress_display,
                             start_time,
                         ),
@@ -469,7 +470,7 @@ async def upload_single_file(
                         # reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "╭──────── ⌊ 📤 Uploading ⌉ ",
                             message_for_progress_display,
                             start_time,
                         ),
@@ -511,7 +512,7 @@ async def upload_single_file(
                         # reply_to_message_id=message.reply_to_message.message_id,
                         progress=progress_for_pyrogram,
                         progress_args=(
-                            "trying to upload",
+                            "╭──────── ⌊ 📤 Uploading ⌉ ",
                             message_for_progress_display,
                             start_time,
                         ),
